@@ -1,5 +1,5 @@
 from django import forms
-from app_name.models import models
+# from app_name.models import models
 
 
 class Profile_eddit(forms.ModelForm):
