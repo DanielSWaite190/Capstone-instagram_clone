@@ -4,19 +4,9 @@ from django.urls import reverse_lazy
 from django.shortcuts import render
 from post_app.models import ImageModel
 
-# @login_required
-# def home(request):
-#     return render(request, "home_feed_app/home_feed.html")
-
-
-
-
-
-
 class HomePageView(ListView):
     model = ImageModel
     template_name = 'home_feed.html'
-    
 
 # class CreatePostView(CreateView): # new
 #     model = Post
