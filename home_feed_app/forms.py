@@ -1,16 +1,5 @@
 from django import forms
 from app_name.models import models
-# from django.contrib.auth.models import AbstractUser
-
-
-# class Staff(AbstractUser):
-#     pass
-
-
-# login and signup form
-class Login_form(forms.Form):
-    username = forms.CharField(max_length=100)
-    password = forms.CharField(widget=forms.PasswordInput)
 
 
 class Profile_eddit(forms.ModelForm):
