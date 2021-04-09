@@ -1,0 +1,13 @@
+<!-- # new jk -->
+<h1>Profile Page</h1> 
+<h3>{{request.user.display_name}}</h3>
+<img src="{{request.user.profile_pic.url}}" alt='{{request.user.display_name}} profile pic' width='150px' height="150px">
+<h4>Bio: {{request.user.bio}}</h4>
+<!-- get displayname of following -->
+List of People You are Following:
+
+{% for follower in request.user.following.all %}
+<h5>{{follower.display_name}}</h5>
+{% endfor %}
+
+<!-- # new jk -->
