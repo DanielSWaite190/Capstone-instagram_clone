@@ -1,5 +1,4 @@
 from django.urls import path
-from django.conf.urls import include, url
 from post_app.views import CreatePostView
 
 urlpatterns = [
