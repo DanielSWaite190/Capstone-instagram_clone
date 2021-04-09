@@ -42,10 +42,10 @@ def signup_view(request):
 
                 )
             login(request, new_user)
-            
+
             return HttpResponseRedirect(reverse("home_feed"))
 
-    
+
     form = SignupForm()
     return render(request, "form.html", {'form': form, 'title': 'SignUp'})
 
