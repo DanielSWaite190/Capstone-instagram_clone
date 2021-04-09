@@ -9,7 +9,8 @@ from home_feed_app.urls import urlpatterns as home_url
 from auth_app.urls import urlpatterns as auth_url
 
 urlpatterns = [
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    # path('', index, name='homepage')
 ]
 
 urlpatterns += home_url
