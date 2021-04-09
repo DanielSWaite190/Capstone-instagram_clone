@@ -11,8 +11,5 @@ class ImageModel(models.Model):
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0) 
 
-    
-
-
     def __str__(self):
         return f'{self.caption} by {self.author.display_name}'
