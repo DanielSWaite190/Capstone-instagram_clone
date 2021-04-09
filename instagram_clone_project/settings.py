@@ -29,6 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+LOGIN_URL = '/login/'
 
 
 # Application definition
@@ -41,6 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home_feed_app',
+    'auth_app',
+    'comment_app',
+    'post_app',
+    'phone_field',
+    'instaUser_app'
+
 ]
 
 MIDDLEWARE = [
@@ -122,3 +129,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+AUTH_USER_MODEL = 'instaUser_app.Profile'
