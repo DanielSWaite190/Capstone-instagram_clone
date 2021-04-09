@@ -8,6 +8,7 @@ authors = ["Daniel S. Waite <danielwaite190@gmail.com>"]
 python = "^3.9"
 Django = "^3.1.7"
 django-phone-field = "^1.8.1"
+flake8 = "^3.9.0"
 
 [tool.poetry.dev-dependencies]
 
