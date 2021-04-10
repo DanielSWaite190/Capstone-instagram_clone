@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from django.views import View
 
-# Create your views here.
+class profile_view(View):
+    template_name = "profile.html"
 
-
-def profile_view(request):
-    return render(request, 'profile.html', {'message': 'we are good'})
+    def get(self, request):
+        return render(request, self.template_name, {'message': 'we are good'})
