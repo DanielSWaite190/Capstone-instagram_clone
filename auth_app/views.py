@@ -2,7 +2,6 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import login, logout, authenticate
 from instaUser_app.models import Profile
 from auth_app.forms import Login_form, SignupForm
-from django.contrib.auth.decorators import login_required
 
 def login_view(request):
     if request.method == "POST":
@@ -20,7 +19,7 @@ def login_view(request):
                 return HttpResponseRedirect(request.GET.get("next", reverse("home_feed")))
 
     form = Login_form()
-    return render(request, "auth_app/login.html", {'form': form})
+    return render(request, "login.html", {'form': form})
 
 
 def logout_view(request):
