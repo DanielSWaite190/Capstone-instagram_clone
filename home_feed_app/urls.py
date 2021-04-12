@@ -5,4 +5,5 @@ from home_feed_app import views
 
 urlpatterns = [
     path('', login_required(views.HomePageView.as_view()), name='home_feed'),
+    path('photo/<int:photo_id>/', views.PhotoDetailView)
 ]
