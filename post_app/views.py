@@ -2,8 +2,6 @@ from django.views.generic import ListView, CreateView # new
 from django.urls import reverse_lazy # new
 from post_app.models import ImageModel # new
 from post_app.forms import ImageModelForm # new
-# Create your views here.
-
 
 class CreatePostView(CreateView): # new
     model = ImageModel
