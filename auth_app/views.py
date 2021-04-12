@@ -11,7 +11,6 @@ def login_view(request):
             Profile = authenticate(
                 request,
                 username=data["username"],
-                email=data["email"],
                 password=data["password"]
             )
             if Profile:
