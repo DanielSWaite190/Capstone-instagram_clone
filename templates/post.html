@@ -1,0 +1,11 @@
+{% extends "base.html" %} <!-- dsw -->
+{% block content %} <!-- dsw -->
+
+<h1>Post it!</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit New Post</button>
+</form>
+
+{% endblock content %} <!-- dsw -->

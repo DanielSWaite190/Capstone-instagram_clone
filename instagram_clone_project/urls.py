@@ -1,21 +1,22 @@
-"""instagram_clone_project URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from auth_app import views
+from home_feed_app import views
+from django.conf import settings
+from django.conf.urls.static import static
+from home_feed_app.urls import urlpatterns as home_url
+from auth_app.urls import urlpatterns as auth_url
+from post_app.urls import urlpatterns as post_url
+from instaUser_app.urls import urlpatterns as user_url
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += home_url
+urlpatterns += auth_url
+urlpatterns += post_url
+urlpatterns += user_url
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
