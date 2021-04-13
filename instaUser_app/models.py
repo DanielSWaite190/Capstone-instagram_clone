@@ -15,7 +15,7 @@ class Profile(AbstractUser):
         ImageModel,
         blank=True,
         related_name="likes"
-    )  # A
+    )  # Ana
 
 
 def __str__(self):
