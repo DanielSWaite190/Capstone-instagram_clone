@@ -9,6 +9,7 @@ python = "^3.9"
 Django = "^3.1.7"
 django-phone-field = "^1.8.1"
 flake8 = "^3.9.0"
+Pillow = "^8.2.0"
 
 [tool.poetry.dev-dependencies]
 

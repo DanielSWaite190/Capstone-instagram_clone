@@ -1,8 +1,23 @@
+<!-- Ana -->
+{% include 'nav.html'%}
+<!-- Ana -->
+
 <h1>Django Image Uploading</h1>
 <ul>
   {% for post in object_list %}
-    <img src="{{ post.image_file.url }}" alt="{{ post.caption }}">
+    <img src="{{ post.image_file.url }}" alt="{{ post.caption }}" width='150px' height='150px'">
     <p>{{post.caption}}</p>
+  
+    {% if request.user.is_authenticated %}
+      <form method="post">
+      {% csrf_token %}
+      {% if not post in request.user.likes.all %}
+        <button name="redirect_url" value="{{request.path}}" formaction="/like/{{post.id}}/">Like</button>
+      {% else %}
+        <button name="redirect_url" value="{{request.path}}" formaction="/unlike/{{post.id}}/">Unlike</button>
+      {% endif %}
+      </form>
+    {% endif %}
 
   {% endfor %}
 </ul>
