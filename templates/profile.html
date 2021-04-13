@@ -5,7 +5,11 @@
 <!-- # new jk -->
 <h1>Profile Page</h1>
 <h3>{{request.user.display_name}}</h3> <!-- dsw -->
-<img src="{{profile.profile_pic.url}}" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
+{% if request.user.profile_pic%}
+    <img src="{{profile.profile_pic.url}}" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
+    {% else %}
+    <img src="/media/images/broken.png" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
+{% endif %}
 <h4>Bio: {{profile.bio}}</h4> <!-- dsw -->
 <!-- get displayname of following -->
 List of People You are Following:

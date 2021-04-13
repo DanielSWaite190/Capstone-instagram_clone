@@ -17,6 +17,7 @@ class Profile(AbstractUser):
     profile_pic = models.ImageField(upload_to='images/')
     dob = models.DateField(null=True, blank=True)
     phone = PhoneField(blank=True, help_text='Contact phone number')
+    # want to make bio blank = true null = True
     bio = models.CharField(max_length=300)
     following = models.ManyToManyField("self", symmetrical=False, blank=True)
 
