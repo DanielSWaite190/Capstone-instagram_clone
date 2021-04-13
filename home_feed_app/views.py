@@ -7,3 +7,8 @@ from post_app.models import ImageModel
 class HomePageView(ListView):
     model = ImageModel
     template_name = 'home_feed.html'
+
+
+def PhotoDetailView(request, photo_id):
+    post = ImageModel.objects.get(id=photo_id)
+    return render(request, "photo_detail.html", {'post':post})
