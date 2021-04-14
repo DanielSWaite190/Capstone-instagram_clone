@@ -2,6 +2,8 @@ from django.views.generic import ListView, CreateView # new
 from django.urls import reverse_lazy # new
 from post_app.models import ImageModel # new
 from post_app.forms import ImageModelForm # new
+from django.shortcuts import HttpResponseRedirect  # A
+from django.contrib.auth.decorators import login_required  # A
 
 class CreatePostView(CreateView): # new
     model = ImageModel
