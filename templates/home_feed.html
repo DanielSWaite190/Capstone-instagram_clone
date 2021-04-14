@@ -7,6 +7,17 @@
     <a href="/photo/{{post.id}}/"><img src="{{ post.image_file.url }}" alt="{{ post.caption }}" width='500' height="px"></a> <!-- dsw -->
     <p>{{post.caption}}</p>
 
+    {% if request.user.is_authenticated %}
+      <form method="post">
+      {% csrf_token %}
+      {% if not post in request.user.likes.all %}
+        <button name="redirect_url" value="{{request.path}}" formaction="/like/{{post.id}}/">Like</button>
+      {% else %}
+        <button name="redirect_url" value="{{request.path}}" formaction="/unlike/{{post.id}}/">Unlike</button>
+      {% endif %}
+      </form>
+    {% endif %}
+    <div> {{post.author.likes.count}} likes</div>
   {% endfor %}
 </ul>
 {% endblock content %} <!-- dsw -->
