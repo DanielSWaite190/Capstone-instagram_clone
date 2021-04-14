@@ -20,7 +20,6 @@ def like_photo_view(request, post_id):
     post = ImageModel.objects.filter(id=post_id).first()
     post.liked.add(current_user)
     current_user.save()
-    print("likes", request.user.likes.filter(id=post_id).first())
     return HttpResponseRedirect(redirect)
 
 
@@ -32,5 +31,4 @@ def unlike_photo_view(request, post_id):
     post = ImageModel.objects.filter(id=post_id).first()
     post.liked.remove(current_user)
     current_user.save()
-    print("unliked", post.liked)
     return HttpResponseRedirect(redirect)
