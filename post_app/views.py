@@ -5,6 +5,7 @@ from post_app.forms import ImageModelForm # new
 from django.shortcuts import HttpResponseRedirect  # A
 from django.contrib.auth.decorators import login_required  # A
 
+
 class CreatePostView(CreateView): # new
     model = ImageModel
     form_class = ImageModelForm

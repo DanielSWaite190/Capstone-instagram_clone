@@ -9,7 +9,6 @@ from auth_app.urls import urlpatterns as auth_url
 from post_app.urls import urlpatterns as post_url
 from instaUser_app.urls import urlpatterns as user_url
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
