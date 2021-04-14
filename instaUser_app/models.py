@@ -1,6 +1,7 @@
 from django.db import models
 from phone_field import PhoneField
 from django.contrib.auth.models import AbstractUser
+from post_app.models import ImageModel
 
 # class User(AbstractUser):
 #     display_name = models.CharField(max_length=75, null=True, blank=True)
@@ -21,6 +22,5 @@ class Profile(AbstractUser):
     bio = models.CharField(max_length=300)
     following = models.ManyToManyField("self", symmetrical=False, blank=True)
 
-
 def __str__(self):
-    return self.display_name
+    return f"{self.display_name} | {self.likes}"
