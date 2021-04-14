@@ -3,6 +3,7 @@ from django.urls import reverse_lazy # new
 from post_app.models import ImageModel # new
 from post_app.forms import ImageModelForm # new
 
+
 class CreatePostView(CreateView): # new
     model = ImageModel
     form_class = ImageModelForm
