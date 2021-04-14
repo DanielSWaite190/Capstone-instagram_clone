@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from instaUser_app.forms import ProfileEdditForm
 from instaUser_app.models import Profile
 from django.views import View
+from auth_app.views import logout_view
 
 
 # DSW Update
@@ -18,7 +19,7 @@ class profile_view(View):
 @login_required
 def EdditProfile_view(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
-    context = {}  # I might not need this
+    context = {'profile': profile}
     initial = {
         'display_name': profile.display_name,
         'profile_pic': profile.profile_pic,
@@ -42,7 +43,7 @@ def EdditProfile_view(request, profile_id):
     form = ProfileEdditForm(initial=initial)
     context.update({'form': form})
 
-    return render(request, "profileform.html", {'form': form})
+    return render(request, "profileform.html", context)
 
 
 # JK
@@ -50,3 +51,12 @@ def EdditProfile_view(request, profile_id):
 def delete_photo_view(request, photo_id):
     prof_img = Profile.objects.get(id=photo_id).profile_pic.delete(save=True)
     return render(request, 'profile.html', {"message": "deleted successfully"})
+
+
+@login_required()
+def delete_user(request, user_id):
+    user = Profile.objects.get(id=user_id)
+
+    logout_view(request)
+    user.delete()
+    return  HttpResponseRedirect('/')
