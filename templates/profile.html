@@ -7,7 +7,7 @@
 {{message}}
 <h3>{{request.user.display_name}}</h3> <!-- dsw -->
 <!-- jk -->
-{% if request.user.profile_pic %}
+{% if profile.profile_pic %}
 <img src="{{profile.profile.pic.url}}" alt='{{profile.display_name}} profile pic' width='150px' height="150px"  >
 {% else %}
 <img src="/media/images/broken.png" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
