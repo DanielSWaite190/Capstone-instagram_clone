@@ -1,6 +1,7 @@
 {% extends "base.html" %} <!-- dsw -->
 {% block content %} <!-- dsw -->
 <h1>Django Image Uploading</h1>
+
 <ul>
   {% for post in object_list %}
     <a href="/photo/{{post.id}}/"><img src="{{ post.image_file.url }}" alt="{{ post.caption }}" width='500' height="px"></a> <!-- dsw -->
