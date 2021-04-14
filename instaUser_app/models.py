@@ -1,6 +1,7 @@
 from django.db import models
 from phone_field import PhoneField
 from django.contrib.auth.models import AbstractUser
+from post_app.models import ImageModel
 
 # class User(AbstractUser):
 #     display_name = models.CharField(max_length=75, null=True, blank=True)
