@@ -18,22 +18,10 @@ class profile_view(View):
 # DSW
 @login_required
 def EdditProfile_view(request, profile_id):
-<<<<<<< HEAD
 
     # jk starts here
     context = {}
     edit = Profile.objects.get(id=profile_id)
-=======
-    profile = Profile.objects.get(id=profile_id)
-    context = {'profile': profile}
-    initial = {
-        'display_name': profile.display_name,
-        'profile_pic': profile.profile_pic,
-        'dob': profile.dob,
-        'phone': profile.phone,
-        'bio': profile.bio
-    }
->>>>>>> dev
 
     if request.method == "POST":
         form = ProfileEdditForm(request.POST, request.FILES)
@@ -92,11 +80,8 @@ def assign_view(request, post_id):
     # form = ProfileEdditForm(initial=initial)
     # context.update({'form': form})
 
-<<<<<<< HEAD
     # return render(request, "profileform.html", {'form': form})
-=======
     return render(request, "profileform.html", context)
->>>>>>> dev
 
 
 # JK
