@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from instaUser_app.models import Profile
 
 class ImageModel(models.Model):
     image_file = models.ImageField(upload_to = 'images/')
