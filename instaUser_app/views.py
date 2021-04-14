@@ -5,13 +5,6 @@ from instaUser_app.models import Profile
 from django.shortcuts import render
 from django.views import View
 
-<<<<<<< HEAD
-# Create your views here.
-
-
-def profile_view(request):
-    return render(request, 'profile.html', {'message': 'we are good'})
-=======
 #DSW Update
 class profile_view(View):
     template_name = "profile.html"
@@ -49,4 +42,3 @@ def EdditProfile_view(request, profile_id):
     context.update({'form': form})
 
     return render(request, "profileform.html", {'form': form})
->>>>>>> 479dc0d1196ad9795d45af1bf9c03096690bea92

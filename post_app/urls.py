@@ -1,13 +1,11 @@
 from django.urls import path
-from post_app.views import CreatePostView
-<<<<<<< HEAD
+from post_app.views import CreatePostView, PostDetail_View, DeleteComment_view
+from comment_app.views import EditComment_view
+
 
 urlpatterns = [
-    path('post/', CreatePostView.as_view(), name='add_post')
-=======
-from django.contrib.auth.decorators import login_required
-
-urlpatterns = [
-    path('post/', login_required(CreatePostView.as_view()), name='add_post')
->>>>>>> 479dc0d1196ad9795d45af1bf9c03096690bea92
+    path('post/', CreatePostView.as_view(), name='add_post'),
+    path('editcomment/<int:comment_id>/', EditComment_view, name='edit_comment'),
+    path('postdetail/<int:post_id>', PostDetail_View, name='post_detail'),
+    path('deletecomment/<int:comment_id>/', DeleteComment_view, name='delete_comment')
 ]
