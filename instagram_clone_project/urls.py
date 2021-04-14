@@ -20,3 +20,4 @@ urlpatterns += post_url
 urlpatterns += user_url
 if settings.DEBUG: # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Remove 21 and 22 when we debug = False
