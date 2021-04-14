@@ -17,7 +17,7 @@
     {% endif %}
     </form>
     {% endif %}
-    <div> {{post.author.likes.count}} likes</div>
+    <div> {{request.user.likes.count}} likes</div>
 
   {% endfor %}
 </ul>
