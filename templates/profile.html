@@ -6,15 +6,16 @@
 <h1>Profile Page</h1>
 {{message}}
 <h3>{{request.user.display_name}}</h3> <!-- dsw -->
+<!-- jk -->
 {% if request.user.profile_pic %}
-    <img src="{{profile.profile_pic.url}}" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
-    <a href="/delete/{{request.user.id}}"><button>Delete Picture</button></a>
-    {% else %}
-    <img src="/media/images/broken.png" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
+<img src="{{profile.profile.pic.url}}" alt='{{profile.display_name}} profile pic' width='150px' height="150px"  >
+{% else %}
+<img src="/media/images/broken.png" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
 {% endif %}
+<!-- jk -->
 <h4>Bio: {{profile.bio}}</h4> <!-- dsw -->
 <!-- get displayname of following -->
-List of People You are Following:
+<!-- List of People You are Following: -->
 
 {% for follower in request.user.following.all %}
 <h5>{{profile.follower.display_name}}</h5> <!-- dsw -->
