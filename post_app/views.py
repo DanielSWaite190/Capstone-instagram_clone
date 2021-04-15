@@ -8,6 +8,7 @@ from comment_app.views import EditComment_view
 from instaUser_app.models import Profile
 from django.shortcuts import render, reverse 
 from django.shortcuts import HttpResponseRedirect
+from django.http import HttpResponseForbidden
 
 class CreatePostView(CreateView): # new
     model = ImageModel
@@ -37,6 +38,14 @@ def PostDetail_View(request, post_id):
 
 def DeleteComment_view(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
-    comment.delete()
-    return HttpResponseRedirect(reverse("post_detail",args = [comment.image.id]))
+    if (
+        request.user.id == comment.owner.id
+    
+        or request.user.id == comment.image.author.id):
+
+        comment.delete()
+        return HttpResponseRedirect(reverse("post_detail",args = [comment.image.id]))
+    else:
+        return HttpResponseForbidden('No Permission To Delete Comment')
+
     
