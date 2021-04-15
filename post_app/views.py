@@ -66,6 +66,7 @@ def DeleteComment_view(request, comment_id):
     return HttpResponseRedirect(reverse("post_detail",args = [comment.image.id]))
 
 
+# A
 @login_required
 def delete_post_view(request, post_id):
     redirect = request.POST.get('redirect_url', '/')
