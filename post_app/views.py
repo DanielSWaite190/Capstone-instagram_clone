@@ -5,8 +5,8 @@ from post_app.forms import ImageModelForm  # new
 from django.contrib.auth.decorators import login_required  # A
 from comment_app.models import Comment
 from comment_app.forms import CommentForm
-from comment_app.views import EditComment_view
-from instaUser_app.models import Profile
+# from comment_app.views import EditComment_view not used jk
+# from instaUser_app.models import Profile not used jk
 from django.shortcuts import render, reverse, HttpResponseRedirect
 
 
@@ -15,6 +15,11 @@ class CreatePostView(CreateView):  # new
     form_class = ImageModelForm
     template_name = 'post.html'
     success_url = reverse_lazy('home_feed')
+
+    def get_form_kwargs(self):
+        kwargs = super(CreatePostView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
 
 
 # A
@@ -45,19 +50,20 @@ def PostDetail_View(request, post_id):
     profileuser = request.user
     comments = Comment.objects.filter(image=post).order_by('-creation_time')
     if request.method == "POST":
-            form = CommentForm(request.POST)
-            if form.is_valid():
-                comment = form.save(commit=False)
-                comment.owner = profileuser
-                comment.image = post
-                comment.post_id = post_id
-                comment.save()
-            
-                return HttpResponseRedirect(reverse("post_detail",args = [post_id]))
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.owner = profileuser
+            comment.image = post
+            comment.post_id = post_id
+            comment.save()
+
+            return HttpResponseRedirect(reverse("post_detail", args=[post_id]))
     else:
-            form = CommentForm()
+        form = CommentForm()
     context = {'owner': post, 'form': form, 'comments': comments}
-    return render (request, html, context)
+    return render(request, html, context)
+
 
 
 def DeleteComment_view(request, comment_id):
