@@ -21,11 +21,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <a class="btn btn-primary mb-3" href="/">Home</a>
-        <a class="btn btn-primary mb-3" href="/post">New Post</a>
-        <a class="btn btn-primary mb-3" href="/profile/{{request.user.id}}">Profile</a>
-        <a class="btn btn-primary mb-3" href="/logout">Log Out</a>
-        <a class='btn btn-primary mb-3' href="/admin"><b>Admin</b></a>
+        {% include "navbar.html" %}
 
         {% block content %}
         {% endblock %}

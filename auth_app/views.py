@@ -3,6 +3,10 @@ from django.contrib.auth import login, logout, authenticate
 from instaUser_app.models import Profile
 from auth_app.forms import Login_form, SignupForm
 
+
+
+
+
 def login_view(request):
     if request.method == "POST":
         form = Login_form(request.POST)
