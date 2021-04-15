@@ -10,6 +10,11 @@ class ImageModel(models.Model):
     )  # A
     capture_location = models.CharField(max_length=100, blank=True, null=True)
     creation_time = models.DateTimeField(default=timezone.now)
+    liked = models.ManyToManyField(
+        "instaUser_app.Profile",
+        blank=True,
+        related_name="liked"
+    )  # A
 
     def __str__(self):
         return f'{self.caption} by {self.author.display_name}'

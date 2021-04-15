@@ -21,11 +21,6 @@ class Profile(AbstractUser):
     # want to make bio blank = true null = True
     bio = models.CharField(max_length=300)
     following = models.ManyToManyField("self", symmetrical=False, blank=True)
-    likes = models.ManyToManyField(
-        ImageModel,
-        blank=True,
-        related_name="likes"
-    )  # Ana
 
 def __str__(self):
-    return self.display_name
+    return f"{self.display_name} | {self.likes}"
