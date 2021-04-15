@@ -1,19 +1,21 @@
-from django.views.generic import ListView, CreateView # new
-from django.urls import reverse_lazy # new
-from post_app.models import ImageModel # new
-from post_app.forms import ImageModelForm # new
+from django.views.generic import CreateView  # ListView, # new
+from django.urls import reverse_lazy  # new
+from post_app.models import ImageModel  # new
+from post_app.forms import ImageModelForm  # new
 from django.contrib.auth.decorators import login_required  # A
 from comment_app.models import Comment
-from comment_app.forms import CommentForm  
+from comment_app.forms import CommentForm
 from comment_app.views import EditComment_view
 from instaUser_app.models import Profile
 from django.shortcuts import render, reverse, HttpResponseRedirect
 
-class CreatePostView(CreateView): # new
+
+class CreatePostView(CreateView):  # new
     model = ImageModel
     form_class = ImageModelForm
     template_name = 'post.html'
     success_url = reverse_lazy('home_feed')
+
 
 # A
 @login_required
@@ -35,6 +37,8 @@ def unlike_photo_view(request, post_id):
     post.liked.remove(current_user)
     current_user.save()
     return HttpResponseRedirect(redirect)
+
+
 def PostDetail_View(request, post_id):
     html = 'post_detail.html'
     post = ImageModel.objects.get(id=post_id)
@@ -55,8 +59,16 @@ def PostDetail_View(request, post_id):
     context = {'owner': post, 'form': form, 'comments': comments}
     return render (request, html, context)
 
+
 def DeleteComment_view(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
     comment.delete()
     return HttpResponseRedirect(reverse("post_detail",args = [comment.image.id]))
-    
+
+
+@login_required
+def delete_post_view(request, post_id):
+    redirect = request.POST.get('redirect_url', '/')
+    post = ImageModel.objects.filter(id=post_id).first()
+    post.delete()
+    return HttpResponseRedirect(redirect)
