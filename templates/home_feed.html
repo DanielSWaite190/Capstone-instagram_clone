@@ -1,96 +1,43 @@
-<!-- <head>
-  <link rel="stylesheet" href="stylesheet.css">
-</head> -->
-<!-- <head>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
-</head> -->
-
 {% extends "base.html" %}
 {% block content %}
 <br>
   
-  <div class="feed">
-    <ul class='feed_items'>
-      {% for post in object_list %}
-      <div class="card" style="width: 30rem;">
-        <a href="/postdetail/{{post.id}}/"><img src="{{ post.image_file.url }}" 
-          class="card-img-top" alt="{{ post.caption }}"></a>
-        <div class="card-body">
-          <h5 class="card-title">{{post.caption}}</h5>
-        </div>
-        <!-- <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul> -->
-        <!-- <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div> -->
-        <div class="card-body">
-          {% if request.user.is_authenticated %}
-          <form method="post">
-            {% csrf_token %}
-
-            {% if not request.user in post.liked.all %}
-              <button name="redirect_url" value="{{request.path}}" formaction="/like/{{post.id}}/">Like</button>
-            {% else %}
-              <button name="redirect_url" value="{{request.path}}" formaction="/unlike/{{post.id}}/">Unlike</button>
-            {% endif %}
-
-            {% if request.user.username == post.author.username%}
-              <button name="redirect_url" value="{{request.path}}" formaction="/deletepost/{{post.id}}/">Delete post</button>
-            {% endif %}
-          </form>
-
-          {% if post.liked.count == 1 %}
-            <div> {{post.liked.count}} like</div>
-          {% else %}
-            <div> {{post.liked.count}} likes</div>
-          {% endif %}
-        {% endif %}
-        </div>
+<ul>
+  <div class='feed_items' >
+    {% for post in object_list %}
+    <div class="card" style="width: 30rem;">
+      <a href="/postdetail/{{post.id}}/"><img src="{{ post.image_file.url }}" 
+        class="card-img-top" alt="{{ post.caption }}"></a>
+      <div class="card-body">
+        <h5 class="card-title">{{post.caption}}</h5>
       </div>
-      {% endfor %}
-    </ul>
-  </div> 
+    
+      <div class="card-body">
+        {% if request.user.is_authenticated %}
+        <form method="post">
+          {% csrf_token %}
 
+          {% if not request.user in post.liked.all %}
+            <button name="redirect_url" value="{{request.path}}" formaction="/like/{{post.id}}/">Like</button>
+          {% else %}
+            <button name="redirect_url" value="{{request.path}}" formaction="/unlike/{{post.id}}/">Unlike</button>
+          {% endif %}
 
+          {% if request.user.username == post.author.username%}
+            <button name="redirect_url" value="{{request.path}}" formaction="/deletepost/{{post.id}}/">Delete post</button>
+          {% endif %}
+        </form>
 
-
-
-
-
-
-
-
-<!-- <ul>
-  {% for post in object_list %}
-    <a href="/photo/{{post.id}}/"><img src="{{ post.image_file.url }}" alt="{{ post.caption }}" width='500' height="px"></a>
-    <p>{{post.caption}}{{post.id}}</p>
-
-    {% if request.user.is_authenticated %}
-      <form method="post">
-        {% csrf_token %}
-
-        {% if not request.user in post.liked.all %}
-          <button name="redirect_url" value="{{request.path}}" formaction="/like/{{post.id}}/">Like</button>
+        {% if post.liked.count == 1 %}
+          <div> {{post.liked.count}} like</div>
         {% else %}
-          <button name="redirect_url" value="{{request.path}}" formaction="/unlike/{{post.id}}/">Unlike</button>
+          <div> {{post.liked.count}} likes</div>
         {% endif %}
-
-        {% if request.user.username == post.author.username%}
-          <button name="redirect_url" value="{{request.path}}" formaction="/deletepost/{{post.id}}/">Delete post</button>
-        {% endif %}
-      </form>
-
-      {% if post.liked.count == 1 %}
-        <div> {{post.liked.count}} like</div>
-      {% else %}
-        <div> {{post.liked.count}} likes</div>
       {% endif %}
-    {% endif %}
-  
-  {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </ul>
-{% endblock content %} -->
+
+{% endblock content %}
