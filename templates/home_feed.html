@@ -8,11 +8,9 @@
 {% extends "base.html" %}
 {% block content %}
 <br>
-<div class="container">
   
-  <div class="child">
-    
-    <ul>
+  <div class="feed">
+    <ul class='feed_items'>
       {% for post in object_list %}
       <div class="card" style="width: 30rem;">
         <a href="/postdetail/{{post.id}}/"><img src="{{ post.image_file.url }}" 
@@ -56,7 +54,6 @@
       {% endfor %}
     </ul>
   </div> 
-</div>
 
 
 

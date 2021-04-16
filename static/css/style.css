@@ -1,3 +1,7 @@
-body{
-    background-color: aqua;
+/* .feed{
+    display: flex; 
+} */
+
+.feed_items{
+    padding-left: 215px;
 }
