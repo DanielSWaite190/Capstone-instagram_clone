@@ -12,6 +12,9 @@ class ImageModelForm(forms.ModelForm):
             'caption',
             'author'
         ]
+        widgets = {
+            'author': forms.HiddenInput(),
+        }  # a.r.t.
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop("user")
