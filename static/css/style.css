@@ -4,8 +4,8 @@
 }
 
 body{
-    /* background-color: #ff806f5b; */
-    background-color: #2e8a545b;
+    background-color: #ff806f5b;
+    /* background-color: #2e8a545b; */
 }
 
 .feed_items{
@@ -14,5 +14,6 @@ body{
 }
 
 .card{
-    align-self:center
+    background-color: #fcda7b;
+    align-self:center;
 }
