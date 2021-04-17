@@ -6,6 +6,7 @@ class ImageModel(models.Model):
     caption = models.CharField(max_length=50, blank=True, null=True)
     author = models.ForeignKey(
         "instaUser_app.Profile",
+        related_name="author",
         on_delete=models.CASCADE
     )  # A
     capture_location = models.CharField(max_length=100, blank=True, null=True)
