@@ -17,3 +17,36 @@ body{
     background-color: #fcda7b;
     align-self:center;
 }
+
+.card-body{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* #card-buttons{
+    align-self:center;
+    background-color: #fc0a0a;
+} */
+
+button{
+    background-color: #F8FCF4;
+}
+
+footer {
+    text-align: right;
+}
+
+button {
+    border: none;
+    color: black;
+    padding: 14px 28px;
+    cursor: pointer;
+}
+
+.buttons{
+   display: flex;
+}
+
+.form-buttons{
+    align-self:center;
+}

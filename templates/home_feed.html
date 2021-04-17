@@ -14,24 +14,32 @@
     
       <div class="card-body">
         {% if request.user.is_authenticated %}
-        <form method="post">
+        <form id="card-buttons "method="post">
           {% csrf_token %}
 
+          <div class=buttons>
           {% if not request.user in post.liked.all %}
+          <div id="like" class=form-buttons>
             <button name="redirect_url" value="{{request.path}}" formaction="/like/{{post.id}}/">Like</button>
-          {% else %}
+          </div>
+            {% else %}
+          <div id="like" class=form-buttons>
             <button name="redirect_url" value="{{request.path}}" formaction="/unlike/{{post.id}}/">Unlike</button>
-          {% endif %}
+          </div>
+            {% endif %}
 
           {% if request.user.username == post.author.username%}
+          <div id="delete" class=form-buttons>
             <button name="redirect_url" value="{{request.path}}" formaction="/deletepost/{{post.id}}/">Delete post</button>
-          {% endif %}
+          </div>
+            {% endif %}
+          </div>
         </form>
 
         {% if post.liked.count == 1 %}
-          <div> {{post.liked.count}} like</div>
+          <div id='like'> {{post.liked.count}} like</div>
         {% else %}
-          <div> {{post.liked.count}} likes</div>
+          <div id='like'> {{post.liked.count}} likes</div>
         {% endif %}
       {% endif %}
       </div>
