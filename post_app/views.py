@@ -36,6 +36,8 @@ def PostDetail_View(request, post_id):
     context = {'owner': post, 'form': form, 'comments': comments}
     return render (request, html, context)
 
+
+
 def DeleteComment_view(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
     if (
