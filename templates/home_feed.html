@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 <br>
-  
+
+<img class="img-fluid rounded-circle" src="{{post.author.profile_pic.url}}" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
+  {% if post.author.profile_pic %}
+  {% endif %}
+<img src="{{post.author.profile_pic.url}}" alt="please!">
 <ul>
   <div class='feed_items' >
     {% for post in object_list %}
+    {{post.author.profile_pic}}
     <div class="card" style="width: 30rem;">
       <div class="card-header">
         {{post.author}}
