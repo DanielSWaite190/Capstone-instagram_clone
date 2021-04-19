@@ -24,5 +24,5 @@ class SignupForm(forms.Form):
         widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
     dob = forms.DateField(
         required=True,
-        widget=forms.PasswordInput(attrs={'placeholder': 'MM/DD/YYYY'}))
+        widget=forms.TextInput(attrs={'placeholder': 'MM/DD/YYYY'}))
     phone = PhoneField(blank=True, help_text='Contact phone number')
