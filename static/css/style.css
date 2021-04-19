@@ -48,3 +48,23 @@ body{
     height: 100%;
     width: 100%;
 }
+
+a:link {
+    color: #F8FCF4;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #F8FCF4;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #F8FCF4;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: #F8FCF4;
+    text-decoration: underline;
+  }
