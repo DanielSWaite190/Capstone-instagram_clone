@@ -1,36 +1,46 @@
-{% extends "base.html" %} <!-- dsw -->
-{% block content %} <!-- dsw -->
-<h1>Django Image Uploading</h1>
+{% extends "base.html" %}
+{% block content %}
+<br>
 
 <ul>
-  {% for post in object_list %}
-    <a href="/postdetail/{{post.id}}/"><img src="{{ post.image_file.url }}" alt="{{ post.caption }}" width='500' height="px"></a> <!-- dsw -->
-    <p>{{post.caption}}{{post.id}}</p>
+  <div class='feed_items' >
+    {% for post in object_list %}
+    {{post.author.profile_pic}}
+    <div class="card" style="width: 30rem;">
+      <a href="/postdetail/{{post.id}}/"><img src="{{ post.image_file.url }}" 
+        class="card-img-top" alt="{{ post.caption }}"></a>
 
-  <!-- ana -->
-    {% if request.user.is_authenticated %}
-      <form method="post">
-        {% csrf_token %}
+      <div class="card-body">
+        {% if request.user.is_authenticated %}
+        <form id="card-buttons "method="post">
+          {% csrf_token %}
 
-        {% if not request.user in post.liked.all %}
-          <button name="redirect_url" value="{{request.path}}" formaction="/like/{{post.id}}/">Like</button>
-        {% else %}
-          <button name="redirect_url" value="{{request.path}}" formaction="/unlike/{{post.id}}/">Unlike</button>
+          <div class=buttons>
+          {% if not request.user in post.liked.all %}
+            <button class="btn like" name="redirect_url" value="{{request.path}}" formaction="/like/{{post.id}}/"><img class="heart" src="static/imagenes/pawsse_heart.png"></button>
+          {% else %}
+            <button class="btn like" name="redirect_url" value="{{request.path}}" formaction="/unlike/{{post.id}}/"><img class="heart" src="static/imagenes/filled_heart.png"></button>
+          {% endif %}
+
+          {% if request.user.username == post.author.username%}
+            <button class="btn delete float-right" name="redirect_url" value="{{request.path}}" formaction="/deletepost/{{post.id}}/">Delete post</button>
+          {% endif %}
+
+          {% if post.liked.count == 1 %}
+            <div> {{post.liked.count}} like</div>
+          {% else %}
+            <div> {{post.liked.count}} likes</div>
+          {% endif %}
+
+        </form>
         {% endif %}
+        <p class="card-text">{{post.caption}}</p>
 
-        {% if request.user.username == post.author.username%}
-          <button name="redirect_url" value="{{request.path}}" formaction="/deletepost/{{post.id}}/">Delete post</button>
-        {% endif %}
-      </form>
-
-      {% if post.liked.count == 1 %}
-        <div> {{post.liked.count}} like</div>
-      {% else %}
-        <div> {{post.liked.count}} likes</div>
-      {% endif %}
-    {% endif %}
-  <!-- ana -->
-  
-  {% endfor %}
+      </div>
+    </div>
+    <br/>
+    {% endfor %}
+  </div>
 </ul>
-{% endblock content %} <!-- dsw -->
+
+{% endblock content %}

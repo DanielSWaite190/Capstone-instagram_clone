@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 <h1>{{ post.caption }}<h1>
 <img src="{{ post.image_file.url }}" alt="{{ post.caption }}" width='1000' height="px">
 
@@ -6,3 +8,4 @@
 
 <!-- add comments here -->
 <a href="/">Back</a>
+{% endblock content %}

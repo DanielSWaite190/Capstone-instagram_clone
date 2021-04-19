@@ -24,7 +24,7 @@ class CreatePostView(CreateView):  # new
 
     def get_form_kwargs(self):
         kwargs = super(CreatePostView, self).get_form_kwargs()
-        kwargs.update({'user': self.request.user})
+        kwargs.update({'user': self.request.user.username})
         return kwargs
 
 
