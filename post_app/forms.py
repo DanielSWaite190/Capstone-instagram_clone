@@ -16,4 +16,7 @@ class ImageModelForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop("user")
         super(ImageModelForm, self).__init__(*args, **kwargs)
-        self.fields["author"].queryset = Profile.objects.filter(username=self.user)
+        self.fields['caption'].widget.attrs['placeholder'] = (
+            self.fields['caption'].label)
+        self.fields["author"].queryset = (
+            Profile.objects.filter(username=self.user))
