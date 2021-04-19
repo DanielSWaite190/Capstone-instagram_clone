@@ -4,7 +4,7 @@
 <form action='' method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value='{{title}}'/>
+    <input type="submit" value='Save'/>
 </form>
 <a href="/delete-user/{{request.user.id}}/">DELETE ACCOUNT</a>
 <a href="/profile/{{request.user.id}}/">Cancel</p>
