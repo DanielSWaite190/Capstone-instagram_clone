@@ -17,7 +17,7 @@ class Profile(AbstractUser):
     display_name = models.CharField(max_length=75, null=True, blank=True)
     profile_pic = models.ImageField(
         upload_to='images/',
-        default="static/imagenes/pawsse_paw.png",
+        default="images/pawsse_paw.png",
         blank=True,
         null=True,
     )  # A
