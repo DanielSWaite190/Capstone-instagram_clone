@@ -4,7 +4,7 @@
 
 <ul>
   {% for post in object_list %}
-    <a href="/photo/{{post.id}}/"><img src="{{ post.image_file.url }}" alt="{{ post.caption }}" width='500' height="px"></a> <!-- dsw -->
+    <a href="/postdetail/{{post.id}}/"><img src="{{ post.image_file.url }}" alt="{{ post.caption }}" width='500' height="px"></a> <!-- dsw -->
     <p>{{post.caption}}{{post.id}}</p>
 
   <!-- ana -->
