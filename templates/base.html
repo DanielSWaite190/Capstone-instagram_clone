@@ -23,7 +23,9 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        {% include "navbar.html" %}
+        {% if request.user.is_authenticated %}
+          {% include "navbar.html" %}
+        {% endif %}
 
         {% block content %}
         {% endblock %}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@700&family=Nunito:wght@200;600&family=Roboto&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -18,35 +20,31 @@ body{
     align-self:center;
 }
 
-.card-body{
-    display: flex;
-    flex-direction: column-reverse;
+.navbar-brand{
+    font-family: 'Lilita One', cursive;
+    font-weight: 800;
+} 
+.nav-item{
+    font-family:'Nunito', sans-serif;
+    font-weight: 600;
 }
-
-/* #card-buttons{
-    align-self:center;
-    background-color: #fc0a0a;
+.btn:hover{
+    background-color: #ff806f5b;
+}
+.delete:hover{
+    background-color: red;
+}
+/* .btn:active{
+    background-color: #F75959;
 } */
 
-button{
-    background-color: #F8FCF4;
+.like{
+    width:10%;
+    margin: 0;
+    padding: 0;
 }
 
-footer {
-    text-align: right;
-}
-
-button {
-    border: none;
-    color: black;
-    padding: 14px 28px;
-    cursor: pointer;
-}
-
-.buttons{
-   display: flex;
-}
-
-.form-buttons{
-    align-self:center;
+.heart{
+    height: 100%;
+    width: 100%;
 }
