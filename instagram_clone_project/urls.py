@@ -9,7 +9,6 @@ from auth_app.urls import urlpatterns as auth_url
 from post_app.urls import urlpatterns as post_url
 from instaUser_app.urls import urlpatterns as user_url
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
@@ -20,3 +19,4 @@ urlpatterns += post_url
 urlpatterns += user_url
 if settings.DEBUG: # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Remove 21 and 22 when we debug = False
