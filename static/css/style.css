@@ -31,8 +31,13 @@ body{
 .btn:hover{
     background-color: #ff806f5b;
 }
+
 .delete:hover{
     background-color: red;
+}
+
+.btn{
+    color: #F8FCF4;
 }
 /* .btn:active{
     background-color: #F75959;
