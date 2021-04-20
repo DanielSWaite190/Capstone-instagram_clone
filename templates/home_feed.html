@@ -13,7 +13,8 @@
         <img src="/media/images/pawsse_heart.png" 
        class="card-img-top img-fluid rounded-circle" alt="profile pic" style="width:10%; height:10%">
        {% endif %}
-        <strong>{{post.author.username}}</strong>
+        
+        <a href="/profile/{{post.author.id}}"><strong>{{post.author.username}}</strong></a>
       </div>
       <a href="/postdetail/{{post.id}}/"><img src="{{ post.image_file.url }}"
         class="card-img-top" alt="{{ post.caption }}"></a>
