@@ -8,7 +8,17 @@
 
     
     <div class="d-flex justify-content-start">
-        <h3>{{request.user.display_name}}'s pawfile</h3>  <a href="/eddit-profile/{{profile.id}}/"><button class="btn">Edit Profile</button></a> <!-- dsw --> 
+        <h3>{{request.user.display_name}}'s pawfile</h3> 
+        {% if request.user != profile %}
+                {% if profile in request.user.following.all%}
+                    <a href="/unfollow/{{profile.id}}/"><button class="form-btn" type="submit">Unfollow</button></a> 
+                {% else %}
+                    <a href="/follow/{{profile.id}}/"><button class="form-btn" type="submit">Follow</button></a>
+                {% endif %}
+            <br/>
+            {% else %}
+                <a href="/eddit-profile/{{profile.id}}/"><button class="btn">Edit Profile</button></a> <!-- dsw -->
+        {% endif %}
         <br/>
     </div>
 

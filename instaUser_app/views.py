@@ -98,3 +98,15 @@ def delete_user(request, user_id):
     logout_view(request)
     user.delete()
     return  HttpResponseRedirect('/')
+
+
+def follow(request, user_id):
+    p_user = Profile.objects.get(id=user_id)
+    request.user.following.add(p_user)
+    return HttpResponseRedirect(f"/profile/{user_id}")
+
+
+def unfollow(request, user_id):
+    p_user = Profile.objects.get(id=user_id)
+    request.user.following.remove(p_user)
+    return HttpResponseRedirect(f"/profile/{user_id}")
