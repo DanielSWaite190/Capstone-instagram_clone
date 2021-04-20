@@ -1,9 +1,10 @@
 {% extends "base.html" %} <!-- dsw -->
 {% block content %} <!-- dsw -->
-<a href="/eddit-profile/{{profile.id}}/"><button class="btn float-right">Edit Profile</button></a> <!-- dsw -->
+<div id="profile-container">
 <!-- # new jk -->
 {{message}}
-<h3>{{request.user.display_name}}'s pawfile</h3> <!-- dsw -->
+<span class="d-flex justify-content-start"><h3>{{request.user.display_name}}'s pawfile</h3>  <a href="/eddit-profile/{{profile.id}}/"><button class="btn">Edit Profile</button></a></span> <!-- dsw -->
+<br/>
 {% if profile.profile_pic %}
     <img class="img-fluid rounded-circle" src="{{profile.profile_pic.url}}" alt='{{profile.display_name}} profile pic' width='150px' height="150px">
     <a href="/delete/{{request.user.id}}"><button class="btn delete float-right">Delete Picture</button></a>
@@ -17,4 +18,5 @@
 <h5>{{profile.follower.display_name}}</h5> <!-- dsw -->
 {% endfor %}
 <!-- # new jk -->
+</div>
 {% endblock content %} <!-- dsw -->
