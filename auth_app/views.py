@@ -49,7 +49,7 @@ def signup_view(request):
 
 
     form = SignupForm()
-    return render(request, "form.html", {'form': form, 'title': 'SignUp'})
+    return render(request, "form.html", {'form': form, 'title': 'Sign Up'})
 
 # @login_required
 # def deleteuser_view(request, username):

@@ -43,7 +43,7 @@ body{
 .form-btn, input#file-upload-button {
     color: #F8FCF4; 
     background-color: #ff806f5b;
-    border-radius: 8px;
+    border-radius: 4px;
     border: 0;
     padding: 8px 20px;
   }
