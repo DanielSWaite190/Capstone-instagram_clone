@@ -4,8 +4,8 @@
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value='{{title}}'/>
+    <input type="submit" value='{{title}}' class="form-btn"/>
 </form>
-
-<a href="/login/">Login</p>
+<br/>
+Already have an account? <a href="/login/">Log in</p>
 {% endblock content %}
